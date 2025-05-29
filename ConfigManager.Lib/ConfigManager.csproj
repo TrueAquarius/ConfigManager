@@ -4,6 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- This section is for NuGet  -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <Authors>Andreas Suwe</Authors>
+    <Company>TrueAquarius</Company>
+    <PackageId>TrueAquarius.ConfigManager</PackageId>
+    <Description>Use `ConfigManager` for easy access of your configuration files and user preference files in the AppData folder.</Description>
+
   </PropertyGroup>
 
 </Project>
