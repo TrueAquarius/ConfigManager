@@ -9,8 +9,8 @@ public abstract class ConfigManager<T> where T : ConfigManager<T>, new()
 {
     private static T? _instance;
     private static readonly object _lock = new();
+    private static string? _configPath;
 
-    
     [JsonIgnore]
     public static T Instance
     {
@@ -29,9 +29,22 @@ public abstract class ConfigManager<T> where T : ConfigManager<T>, new()
 
     private static string GetConfigPath()
     {
-        var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MyCliApp");
+        if(!string.IsNullOrEmpty(_configPath))
+        {
+            return _configPath;
+        }
+
+        // Get the namespace of the implementing class to create the default su-path anf filename
+        var type = typeof(T);
+        var namespaceName = type.Namespace ?? throw new InvalidOperationException("The namespace of the class which derives from ConfigManager cannot be null.");
+        var className = type.Name;
+        var subPath = namespaceName.Replace('.', Path.DirectorySeparatorChar);
+
+        var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), subPath);
         Directory.CreateDirectory(folder);
-        return Path.Combine(folder, "Configuration.json");
+        _configPath = Path.Combine(folder, className + ".json");
+
+        return _configPath;
     }
 
     private static T Load()

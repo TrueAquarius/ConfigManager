@@ -1,7 +1,6 @@
 ﻿using TrueAquarius.ConfigManager;
 
-
-namespace ConfigManager.Example
+namespace MyCompany.MyApp
 {
     public class MyConfiguration : ConfigManager<MyConfiguration>
     {

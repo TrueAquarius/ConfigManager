@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConfigManager.Lib\ConfigManager.Lib.csproj" />
+    <ProjectReference Include="..\ConfigManager.Lib\ConfigManager.csproj" />
   </ItemGroup>
 
 </Project>
