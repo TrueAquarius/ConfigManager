@@ -6,7 +6,8 @@ Find this Package on NuGet.org:[https://www.nuget.org/packages/TrueAquarius.Conf
 
 ## How to use it ...
 
-See detailed usage guideline in [ConfigManager/README.me](./ConfigManager/README.me).
+See detailed usage guideline in [ConfigManager/README.md](./ConfigManager/README.md).
+
 
 ## Repository Structure
 
