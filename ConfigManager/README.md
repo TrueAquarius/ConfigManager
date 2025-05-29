@@ -1,6 +1,6 @@
 # TrueAquarius.ConfigManager
 
-Use `ConfigManager` for easy access to your configuration files and user preference files in the AppData folder.
+Use `ConfigManager` for easy access to your configuration files and user preference files in the AppData folder. This library caters to developers of Desktop and Console Applications.
 
 Find this Library on NuGet.org under the name "TrueAquarius.ConfigManager".
 
