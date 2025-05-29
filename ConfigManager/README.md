@@ -40,9 +40,5 @@ config.LastModified = DateTime.Now;
 config.Save();
 ```
 
-## Repository Structure
-
-* **ConfigManager**: The actual Library.
-* **ConfigManager.Example**: Sample application which uses the library.
 
 

@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigManager.Example", "ConfigManager\ConfigManager.Example.csproj", "{88F6F78E-4406-42CE-8FC3-EA2D3515898B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigManager.Example", "ConfigManager.Example\ConfigManager.Example.csproj", "{88F6F78E-4406-42CE-8FC3-EA2D3515898B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigManager", "ConfigManager.Lib\ConfigManager.csproj", "{9662AF55-B0FC-4599-A4AD-8FF9F4B7E7C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigManager", "ConfigManager\ConfigManager.csproj", "{9662AF55-B0FC-4599-A4AD-8FF9F4B7E7C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Description = Use `ConfigManager` for easy access of your configuration files and user preference files in the AppData folder.
+		Description = Use `ConfigManager` for easy access to your configuration files and user preference files in the AppData folder.
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{88F6F78E-4406-42CE-8FC3-EA2D3515898B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
