@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Xml.Linq;
 
 namespace TrueAquarius.ConfigManager;
 
@@ -50,23 +51,30 @@ public abstract class ConfigManager<T> where T : ConfigManager<T>, new()
     private static T Load()
     {
         var path = GetConfigPath();
-        if (File.Exists(path))
+        if (!File.Exists(path))
         {
-            try
+            T t = new T();
+            Save(t);
+        }
+
+        try
             {
                 var json = File.ReadAllText(path);
                 return JsonSerializer.Deserialize<T>(json)!;
             }
             catch { }
-        }
 
-        return new T();
+        return null;
     }
 
-    public void Save()
+    private static void Save(T t)
     {
         var path = GetConfigPath();
-        var json = JsonSerializer.Serialize((T)this, new JsonSerializerOptions { WriteIndented = true });
+        var json = JsonSerializer.Serialize(t, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(path, json);
+    }
+    public void Save()
+    {
+        Save((T)this);
     }
 }
