@@ -58,11 +58,14 @@ public abstract class ConfigManager<T> where T : ConfigManager<T>, new()
         }
 
         try
-            {
-                var json = File.ReadAllText(path);
-                return JsonSerializer.Deserialize<T>(json)!;
-            }
-            catch { }
+        {
+            var json = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<T>(json)!;
+        }
+        catch 
+        {
+            throw new InvalidOperationException($"Failed to load configuration from {path}. The file may be corrupted or in an invalid format.");
+        }
 
         return null;
     }
