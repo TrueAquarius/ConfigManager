@@ -66,8 +66,6 @@ public abstract class ConfigManager<T> where T : ConfigManager<T>, new()
         {
             throw new InvalidOperationException($"Failed to load configuration from {path}. The file may be corrupted or in an invalid format.");
         }
-
-        return null;
     }
 
     private static void Save(T t)
