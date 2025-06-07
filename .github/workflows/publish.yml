@@ -21,11 +21,11 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+    - name: Build library project
+      run: dotnet build ConfigManager/ConfigManager.csproj --configuration Release --no-restore
 
-    - name: Pack NuGet package
-      run: dotnet pack --configuration Release --no-build -o ./artifacts
+    - name: Pack NuGet package (only library)
+      run: dotnet pack ConfigManager/ConfigManager.csproj --configuration Release --no-build -o ./artifacts
 
     - name: Push to NuGet.org
       run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
