@@ -1,4 +1,4 @@
-name: Publish .NET Library
+name: Publish .NET Library to NuGet.org
 
 on:
   push:
@@ -30,9 +30,8 @@ jobs:
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        files: |
+        files: 
           ./artifacts/*.nupkg
-          ./artifacts/*.dll
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
