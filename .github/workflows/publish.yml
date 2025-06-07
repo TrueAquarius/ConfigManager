@@ -27,22 +27,5 @@ jobs:
     - name: Pack NuGet package
       run: dotnet pack --configuration Release --no-build -o ./artifacts
 
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v2
-      with:
-        files: 
-          ./artifacts/*.nupkg
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Push to NuGet.org
-      run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
-
-    # Optional: Also push to GitHub Packages
-    - name: Push to GitHub Packages (optional)
-      run: dotnet nuget push ./artifacts/*.nupkg --source "github"
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Add GitHub source to NuGet config (for GitHub Packages)
-      run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      run: dotnet nuget push ./artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
