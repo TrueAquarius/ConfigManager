@@ -42,3 +42,19 @@ config.Save();
 
 
 
+## Publish
+
+Change Version Number in ConfigManager/ConfigManager.csproj
+
+```XML
+<!-- Define NuGet Package  -->
+<Version>1.1.5</Version>    
+```
+
+Tag code with matching version number and push to origin:
+```powershell
+git tag v1.1.5
+git push origin v1.1.5 
+```
+
+GitHub Action will automatically upload to NuGet.org. This may take a few minutes.
